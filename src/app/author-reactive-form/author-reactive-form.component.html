@@ -1,0 +1,38 @@
+<div class="container">
+
+  <h2>Add Author</h2>
+  
+  <form [formGroup]="authorForm">
+    <div class="form-group">
+      <fieldset formGroupName="name">
+        {{ authorForm.controls.name.controls.firstName.errors | json}}
+         <small [ngStyle]="{color:red}" [hidden]="!authorForm.controls.name.controls.firstName.errors || authorForm.controls.name.controls.firstName.pristine">
+          required
+        </small>
+        <label for="first_name">First Name:</label>
+        <input type="text" class="form-control" id="first_name" formControlName="firstName">
+         <label for="last_name">Last Name:</label>
+        <input type="text" class="form-control" id="last_name"
+        formControlName="lastName"
+        >
+      </fieldset>
+      <fieldset formGroupName="address">
+        <label for="street">Street:</label>
+        <input type="text" class="form-control" id="street" 
+         formControlName="street"
+        >
+        <label for="zip">Zip:</label>
+        <input type="text" class="form-control" id="zip" 
+         formControlName="zip"
+        >
+        <label for="city">City:</label>
+        <input type="text" class="form-control" id="city" 
+         formControlName="city"
+        >
+      </fieldset>
+
+    </div>
+    <button type="submit" class="btn btn-success">Submit</button>
+
+  </form>
+</div>

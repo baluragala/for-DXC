@@ -1,0 +1,42 @@
+<div class="container">
+
+  <h2>Add Author</h2>
+  <code>{{author|json}}</code>
+  <form #authorForm="ngForm" (submit)="OnSubmit(authorForm.value)">
+    <div class="form-group">
+      <fieldset ngModelGroup="name">
+        <small [ngStyle]="{color:red}" [hidden]="firstName.valid || firstName.pristine && !authorForm.submitted">
+          required
+        </small>
+        <label for="first_name">First Name:</label>
+        <input type="text" class="form-control" id="first_name" required
+              minlength="10"
+              name="first_name" [(ngModel)]="first_name"
+              #firstName="ngModel"
+        >
+        {{firstName.errors |json}}
+         <label for="last_name">Last Name:</label>
+        <input type="text" class="form-control" id="last_name" required
+              name="last_name" [(ngModel)]="last_name"
+        >
+      </fieldset>
+      <fieldset ngModelGroup="address">
+        <label for="street">Street:</label>
+        <input type="text" class="form-control" id="street" required
+              name="street" [(ngModel)]="street"
+        >
+        <label for="zip">Zip:</label>
+        <input type="text" class="form-control" id="zip" required
+              name="zip" [(ngModel)]="zip"
+        >
+        <label for="city">City:</label>
+        <input type="text" class="form-control" id="city" required
+              name="city" [(ngModel)]="city"
+        >
+      </fieldset>
+
+    </div>
+    <button type="submit" class="btn btn-success" [disabled]="!authorForm.form.valid">Submit</button>
+
+  </form>
+</div>

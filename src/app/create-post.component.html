@@ -1,0 +1,10 @@
+<h3>Create Post</h3>
+<form [formGroup]="postform" (submit)="onSubmit()">
+  <label> Post Title:
+  <input type="text" formControlName="title"/>
+  </label>
+   <label> Post Author:
+  <input type="text" formControlName="author">
+  </label>
+  <input type="submit" value="Save"/>
+</form>
